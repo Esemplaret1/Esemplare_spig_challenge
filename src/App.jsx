@@ -27,15 +27,28 @@ function App() {
     fetchData();
   }, []);
 
-  function sortByTitle() {
+  function sortAscByTitle() {
     console.log('sort is firing')
     const sortedBooks = [...books].sort((a,b) => a.title.localeCompare(b.title));
     setBooks(sortedBooks);
   }
 
-  function sortByAuthor() {
+  function sortDescByTitle() {
+    console.log('sort is firing')
+    const sortedBooks = [...books].sort((a,b) => b.title.localeCompare(a.title));
+    setBooks(sortedBooks);
+  }
+
+  function sortAscByAuthor() {
     console.log('sort is firing')
     const sortedBooks = [...books].sort((a,b) => a.author.localeCompare(b.author));
+    setBooks(sortedBooks);
+  }
+
+
+  function sortDescByAuthor() {
+    console.log('sort is firing')
+    const sortedBooks = [...books].sort((a,b) => b.author.localeCompare(a.author));
     setBooks(sortedBooks);
   }
 
@@ -60,8 +73,14 @@ function App() {
           onChange={(e) => setSearch(e.target.value.toLowerCase())}
           placeholder='Search book by title'
         ></input></h5>
-        <h5><button onClick={sortByTitle} class="navButton">sort by title</button></h5>
-        <h5><button onClick={sortByAuthor} class="navButton">sort by author</button></h5>
+        <h5 class="navLine">
+          Sort by Title: 
+          <button onClick={sortAscByTitle} class="navButton">asc</button> <button onClick={sortDescByTitle} class="navButton">desc</button>
+        </h5>
+        <h5 class="navLine">
+          Sort by Author: 
+          <button onClick={sortAscByAuthor} class="navButton">asc</button> <button onClick={sortDescByAuthor} class="navButton">desc</button>
+        </h5>
         {/* <h5><button onClick={sortByISBN} class="navButton">sort by ISBN</button></h5>
         <h5><button onClick={sortByYear} class="navButton">sort by year</button></h5> */}
       </div>

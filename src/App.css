@@ -13,10 +13,16 @@
 }
 
 .navButton {
-  width: 120px;
+  width: 60px;
   height: 30px;
   border: 1px solid chartreuse;
   background-color: mintcream;
+}
+
+.navLine {
+  display: inline-grid;
+  margin: 10px;
+  font-size: x-small;
 }
 
 .card {
